@@ -4,9 +4,7 @@ import dropbox
 
 app = Flask(__name__)
 
-access_token = 'Px9ER6ih0GwAAAAAAAAAAWZgfosrvc8agbQlg' \
-               '-YLzCgFwm5HLlrC6vK8kGACKPZ0'
-
+access_token = os.environ['DROPBOX_ACCESS_TOKEN']
 CLIENT = dropbox.client.DropboxClient(access_token)
 
 def _download_pics(pics_to_download):
@@ -54,8 +52,7 @@ def sync_folders():
 def home():
     sync_folders()
     images = get_local_images()
-    return render_template("/index.html",
-                           images=images)
+    return render_template("/index.html", images=images)
 
 
 if __name__ == "__main__":
