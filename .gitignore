@@ -52,3 +52,5 @@ docs/_build/
 # Python stuff:
 *swp
 *un~
+
+static/images/
