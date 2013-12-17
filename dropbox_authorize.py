@@ -1,3 +1,5 @@
+# Initial flow to authorize an app with dropbox.
+
 import requests
 import dropbox
 
