@@ -21,11 +21,10 @@ def _remove_pics(pics_to_remove):
 
 def get_local_images():
     local_pics_path = 'static/images/'
-    images = ['static/images/'+infile for infile in \
+    images = [local_pics_path+infile for infile in \
               os.listdir(local_pics_path) if not \
               infile.startswith('.')]
     return images
-
 
 def sync_folders():
     dropbox_pic_folder = CLIENT.metadata('/fuji-mix')
@@ -37,7 +36,7 @@ def sync_folders():
     local_pics = [f for f in os.listdir(local_pics_path) \
                    if not f.startswith('.')] 
 
-    if dropbox_pics != local_pics:
+    if dropbox_pics is not local_pics:
         pics_to_download = list(set(dropbox_pics) - set(local_pics))
         pics_to_remove = list(set(local_pics) - set(dropbox_pics))
 
