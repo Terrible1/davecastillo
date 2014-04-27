@@ -54,3 +54,4 @@ docs/_build/
 *un~
 
 static/images/
+dropbox_authorize.py
